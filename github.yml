@@ -1,0 +1,21 @@
+image: node:alpine
+
+stages: 
+  - build
+
+on:
+  push:
+    branches:
+      - master
+cache:
+  paths:
+    - node_modules/
+
+install:
+  stage: build
+  script:
+    - npm run install
+  artifacts:
+    path:
+      -node_modules/
+      
